@@ -9,7 +9,8 @@ BORA Explorer는 다음과 같은 모듈로 구성 되어 있습니다.
 1. Front-End를 제공하는 [explorer-front](https://github.com/BoraEcosystem/explorer-front)
 2. Front-End를 위한 API를 제공하는 Back-end 모듈 [explorer-api](https://github.com/BoraEcosystem/explorer-api)
 3. Blockchain에서 데이터를 가져와 index database를 구성하는 [explorer-crawler](https://github.com/BoraEcosystem/explorer-crawler)
-  본 프로젝트는 API에 해당하는 Front-end 모듈입니다. 본 Front 모듈을 구성하고자 한다면 위의 링크를 통해 API Back-end 모듈 및 Crawler에 대한 내용을 확인하세요
+
+본 프로젝트는 API에 해당하는 Front-end 모듈입니다. 본 Front 모듈을 구성하고자 한다면 위의 링크를 통해 API Back-end 모듈 및 Crawler에 대한 내용을 확인하세요
 
 ## BORA Explorer Front
 
