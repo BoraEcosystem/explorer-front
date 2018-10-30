@@ -1,0 +1,100 @@
+<div id="wrapper">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" [routerLink]="['']">
+        <img src="/assets/img/logo.png" alt="bora" />
+      </a>
+    </div>
+    <!-- /.navbar-header -->
+    <div class="navbar-default sidebar" role="navigation">
+      <div class="sidebar-nav navbar-collapse collapse">
+        <ul class="nav" id="side-menu">
+          <li class="sidebar-search">
+            <div class="input-group custom-search-form">
+              <input type="text" class="form-control" #searchInput placeholder="Search..."
+                (keydown.enter)="search()">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button" (click)="search()">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+            <!-- /input-group -->
+          </li>
+          <li>
+            <a [routerLink]="['']">Dashboard</a>
+          </li>
+          <!-- <li>
+            <p>BORA Token</p>
+            <ul class="nav-second-level">
+              <li>
+                <a [routerLink]="['/bora_block/1/10']" class="font1">Blocks</a>
+              </li>
+              <li>
+                <a [routerLink]="['/bora_transaction/1/10']">Transactions</a>
+              </li>
+              <li>
+                <a [routerLink]="['/bora_account/1/10']">Account</a>
+              </li>
+            </ul>
+          </li> -->
+          <li>
+            <p>BORA Shell</p>
+            <ul class="nav-second-level">
+              <li>
+                <p>Service Name :
+                  <select name="dataTable_length" aria-controls="dataTable" class=" form-control form-control-sm" style="margin-top:10px" (change)="sp_change($event)">
+                    <option *ngFor="let item of sp_infos" value="{{ item.appId }}">
+                      {{ item.appName }}
+                    </option>
+                  </select>
+                </p>
+              </li>
+              <li>
+                <a (click)="go_borapoint_blocks()" class="font1">Blocks</a>
+              </li>
+              <li>
+                <a (click)="go_borapoint()">Transactions</a>
+              </li>
+              <li>
+                <a (click)="go_account()">Account</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <p>Tools</p>
+            <ul class="nav-second-level">
+              <li>
+                <a href="https://etherscan.io" target="_blank">Etherscan</a>
+              </li>
+              <li>
+                <a href="https://ethstats.net/" target="_blank">Ethstat</a>
+              </li>
+              <li>
+                <a href="https://www.myetherwallet.com" target="_blank">Wallet (MyEtherWallet)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/settings']">
+              <span>Settings</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.sidebar-collapse -->
+    </div>
+    <!-- /.navbar-static-side -->
+  </nav>
+  <main [@fadeAnimation]="getRouterOutletState(o)">
+    <router-outlet #o="outlet"></router-outlet>
+  </main>
+</div>

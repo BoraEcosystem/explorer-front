@@ -1,0 +1,111 @@
+<!-- Page Content -->
+<div id="page-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Shell Transactions</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading margin-bottom-15">
+                    <h3 class="panel-title">Overview</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="col-sm-2 hidden2-su-xs">Service Code</div>
+                        <div class="col-sm-10 cbs">{{ appId }}</div>
+                        <div class="col-sm-2 hidden2-su-xs">Service Name</div>
+                        <div class="col-sm-10 cbs">{{ appName }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="table-responsive">
+          <table class="table table-bordered" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th class="text-center" width="200px">Hash</th>
+                <th class="text-center">Index</th>
+                <th class="text-center">Block No</th>
+                <th class="text-center" width="200px">Contract Address</th>
+                <th class="text-center">Method</th>
+                <th class="text-center" width="200px">From</th>
+                <th class="text-center" width="200px">To</th>
+                <th class="text-center">Amount</th>
+                <th class="text-center">Status</th>
+                <!-- <th class="text-center">Age</th> -->
+                <th class="text-center">Time(UTC)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of bp_tx_list | paginate: {itemsPerPage: page_size, currentPage: page, totalItems: total}">
+                <td class="text-center">
+                  <a class="address-tag text-truncate" (click)="transaction_info(appId, item.transactionHash)">
+                    {{ item.transactionHash }}
+                  </a>
+                </td>
+                <td class="text-center">{{ item.transactionIndex }}</td>
+                <td class="text-center">
+                  <a (click)="block_info(appId, item.blockNo)">{{ item.blockNo }}
+                  </a>
+                </td>
+                <td class="text-center">
+                  <span class="address-tag text-truncate">
+                    {{ item.contractAddress }}
+                  </span>
+                </td>
+                <td class="text-center">{{ item.method }}</td>
+                <td class="text-center">
+                  <a class="address-tag text-truncate" (click)="addr_info(appId, item.fromAddress)">
+                    {{ item.fromAddress }}
+                  </a>
+                </td>
+                <td class="text-center">
+                  <a class="address-tag text-truncate" (click)="addr_info(appId, item.toAddress)">
+                    {{ item.toAddress }}
+                  </a>
+                </td>
+                <td class="text-right">{{ item.amount }}</td>
+                <td class="text-center">{{ item.status }}</td>
+                <!-- <td class="text-center">{{ item.age }}</td> -->
+                <td class="text-center">{{ item.blockDate | amUtc | amDateFormat: 'YYYY-MM-DD HH:mm:ss' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 text-left">
+            <div class="dataTables_length">
+              <label>Show
+                <select name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm" [(ngModel)]="pSize" (ngModelChange)="onSelectedSize($event)">
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+                </select>
+                entries
+              </label>
+            </div>
+          </div>
+          <div class="col-lg-6 text-right">
+            <pagination-controls (pageChange)="pageChanged($event)"
+              class="pagination"
+              previousLabel="Previous"
+              nextLabel="Next"></pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->

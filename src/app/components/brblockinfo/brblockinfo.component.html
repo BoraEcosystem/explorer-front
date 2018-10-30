@@ -1,0 +1,71 @@
+<!-- Page Content -->
+<div id="page-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">Block Infomation</h1>
+      </div>
+      <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-info">
+          <div class="panel-heading margin-bottom-15">
+            <h3 class="panel-title">Block Infomation&nbsp;</h3>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="col-sm-3 hidden2-su-xs">Block No :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;"><div>{{ data.blockNo}}</div></div>
+              <div class="col-sm-3 hidden2-su-xs">Block Hash :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;"><div>{{ data.blockHash}}</div></div>
+              <div class="col-sm-3 hidden2-su-xs">Gas Used :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;">{{ data.gasUsed | number }}</div>
+              <div class="col-sm-3 hidden2-su-xs">GasLimit :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;">{{ data.gasLimit | number  }}</div>
+              <div class="col-sm-3 hidden2-su-xs">Difficulty :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;">{{ data.difficulty | number  }}</div>
+              <div class="col-sm-3 hidden2-su-xs">Total Difficulty :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;">{{ data.totalDifficulty | number  }}</div>
+              <div class="col-sm-3 hidden2-su-xs">Miner :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;">{{ data.miner }}</div>
+              <div class="col-sm-3 hidden2-su-xs">Mix Hash :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;">{{ data.mixHash }}</div>
+              <div class="col-sm-3 hidden2-su-xs">Parent Hash :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;"><div>{{ data.parentHash }}</div></div>
+              <div class="col-sm-3 hidden2-su-xs">Receipts Root :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;"><div>{{ data.receiptsRoot }}</div></div>
+              <div class="col-sm-3 hidden2-su-xs">Sha3Uncles :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;"><div>{{ data.sha3Uncles }}</div></div>
+              <div class="col-sm-3 hidden2-su-xs">Transaction Root :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;"><div>{{ data.transactionsRoot }}</div></div>
+              <div class="col-sm-3 hidden2-su-xs">Transaction Count :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;">{{ data.transactionCount }}</div>
+              <div class="col-sm-3 hidden2-su-xs">Uncles Count :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;">{{ data.unclesCount }}</div>
+              <div class="col-sm-3 hidden2-su-xs">Extra Data :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;">{{ data.extraData }}</div>
+              <div class="col-sm-3 hidden2-su-xs">Logs Bloom :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;">{{ data.logsBloom }}</div>
+              <div class="col-sm-3 hidden2-su-xs">Nonce :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;">{{ data.nonce }}</div>
+              <div class="col-sm-3 hidden2-su-xs">Block Date :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;">
+                {{ data.blockDate | amUtc | amDateFormat: 'YYYY-MM-DD HH:mm:ss' }}
+              </div>
+              <div class="col-sm-3 hidden2-su-xs">Age :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;">
+                {{ data.age }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</div>
+  <!-- /#page-wrapper -->

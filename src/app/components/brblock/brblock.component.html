@@ -1,0 +1,77 @@
+<!-- Page Content -->
+<div id="page-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">Token Blocks</h1>
+      </div>
+      <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="table-responsive">
+          <table class="table table-bordered" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th class="text-center" width="100px">Block No</th>
+                <th class="text-center" width="200px">Block Hash</th>
+                <th class="text-center" width="200px">Gas Used</th>
+                <th class="text-center">Gas Limit</th>
+                <th class="text-center">nonce</th>
+                <th class="text-center">Trx Count</th>
+                <th class="text-center">BORA Trx Count </th>
+                <th class="text-center">Age</th>
+                <th class="text-center">Time(UTC)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of br_block_list | paginate: {itemsPerPage: page_size, currentPage: page, totalItems: total}">
+                <td class="text-center">
+                  <a class="address-tag text-truncate" (click)="block_info(item.blockNo)">
+                    {{ item.blockNo }}
+                  </a>
+                </td>
+                <td class="text-center">
+                  <span class="address-tag text-truncate">
+                    {{ item.blockHash }}
+                  </span>
+                </td>
+                <td class="text-center">{{ item.gasUsed | number }}</td>
+                <td class="text-center">{{ item.gasLimit | number }}</td>
+                <td class="text-right">{{ item.nonce }} </td>
+                <td class="text-right">{{ item.transactionCount | number }}</td>
+                <td class="text-center">{{ item.boraTransactionCount | number }}</td>
+                <td class="text-center">{{ item.age }}</td>
+                <td class="text-center">{{ item.blockData | amUtc | amDateFormat: 'YYYY-MM-DD HH:mm:ss' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 text-left">
+            <div class="dataTables_length">
+              <label>Show
+                <select name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm"
+                  [(ngModel)]="pSize" (ngModelChange)="onSelectedSize($event)">
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+                </select>
+                entries
+              </label>
+            </div>
+          </div>
+          <div class="col-lg-6 text-right">
+            <pagination-controls (pageChange)="pageChanged($event)" class="pagination" previousLabel="Previous"
+              nextLabel="Next"></pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</div>
+  <!-- /#page-wrapper -->

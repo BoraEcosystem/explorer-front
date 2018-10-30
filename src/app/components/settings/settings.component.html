@@ -1,0 +1,37 @@
+<!-- Page Content -->
+<div id="page-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">Setting</h1>
+      </div>
+      <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="table-responsive">
+          <table class="table table-bordered" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th class="text-center" style="width: 26%">Sercice No</th>
+                <th class="text-center" style="width: 37%">Service Name</th>
+                <th class="text-center" style="width: 37%">Token Address</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of data">
+                <td class="text-center">{{ item.appId }}</td>
+                <td class="text-center">{{ item.appName }}</td>
+                <td class="text-center">{{ item.tokenAddress }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->

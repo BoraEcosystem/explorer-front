@@ -1,0 +1,19 @@
+{
+  "common": {
+    "exchange": "거래소",
+    "deposit": "입금",
+    "withdraw": "출금",
+    "statement": "입출금",
+    "invest": "투자내역",
+    "cointrend": "코인동향",
+    "login": "로그인",
+    "logout": "로그아웃",
+    "scatter": "scatter",
+    "information" : "정보",
+    "official_site" : "공식사이트",
+    "eos": "EOS",
+    "eth": "ETH",
+    "btc": "BTC",
+    "search_placeholder": "코인명 / 심볼검색"
+  }
+}

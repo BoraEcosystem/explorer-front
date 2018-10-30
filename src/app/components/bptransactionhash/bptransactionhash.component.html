@@ -1,0 +1,62 @@
+<!-- Page Content -->
+<div id="page-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">Shell Transactions</h1>
+      </div>
+      <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-info">
+          <div class="panel-heading margin-bottom-15">
+            <h3 class="panel-title">Transaction Information &nbsp;</h3>
+          </div>
+          <div class="row">
+            <div *ngIf="data === null" class="emptydata">
+              Empty Data -> Choose other service name.
+            </div>
+            <div class="col-lg-12" *ngIf="data !== null">
+              <div class="col-sm-3 hidden2-su-xs">Transaction Hash :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;"><div>{{ data.transactionHash }}</div></div>
+              <div class="col-sm-3 hidden2-su-xs">Transaction Index :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;">{{ data.transactionIndex }}</div>
+              <div class="col-sm-3 hidden2-su-xs">Block No :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;"><div>{{ data.blockNo }}</div></div>
+              <div class="col-sm-3 hidden2-su-xs">From :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;">
+                <a (click)="addr_info(data.fromAddress)">{{ data.fromAddress }}</a>
+              </div>
+              <div class="col-sm-3 hidden2-su-xs">To :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;">
+                <a (click)="addr_info(data.toAddress)">{{ data.toAddress }}</a>
+              </div>
+              <div class="col-sm-3 hidden2-su-xs">Contract Address :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;"><div>{{ data.contractAddress}}</div></div>
+              <div class="col-sm-3 hidden2-su-xs">TxId :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;">{{ data.txId }}</div>
+              <div class="col-sm-3 hidden2-su-xs">Date :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;">{{ data.blockDate | amUtc | amDateFormat: 'YYYY-MM-DD HH:mm:ss'  }} ({{ data.age }})</div>
+              <div class="col-sm-3 hidden2-su-xs">Status :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;">{{ data.status }}</div>
+              <div class="col-sm-3 hidden2-su-xs">Value :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;">{{ data.amount }}</div>
+              <div class="col-sm-3 hidden2-su-xs">Method :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;">{{ data.method }}</div>
+              <div class="col-sm-3 hidden2-su-xs">Nonce :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;">{{ data.nonce }}</div>
+              <div class="col-sm-3 hidden2-su-xs">Data :</div>
+              <div class="col-sm-9 cbs" style="word-wrap: break-word;">{{ data.data == null ? 'null' : data.data }}</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->

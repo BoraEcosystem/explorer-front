@@ -1,0 +1,113 @@
+<!-- Page Content -->
+<div id="page-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">Token Account</h1>
+      </div>
+      <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-heading margin-bottom-15">
+            <h3 class="panel-title">Overview</h3>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="col-sm-2 hidden2-su-xs">Address</div>
+              <div class="col-sm-10 cbs plnone">
+                <div class="col-sm-8">
+                  <input type="text" class="width100" [(ngModel)]="user_address">
+                </div>
+                <div class="col-sm-4">
+                  <button (click)="get_address_info()">search</button>
+                </div>
+              </div>
+              <div class="col-sm-2 hidden2-su-xs">Balance</div>
+              <div class="col-sm-10 cbs">{{ addr_info.balanceInEther || '0' | number }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h3>Transaction of Address</h3>
+        <div class="table-responsive">
+          <table class="table table-bordered" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th class="text-center" width="200px">Hash</th>
+                <th class="text-center">Block</th>
+                <th class="text-center">Age</th>
+                <th class="text-center" width="200px">From</th>
+                <th class="text-center" width="200px">To</th>
+                <th class="text-center">Amount</th>
+                <th class="text-center">Status</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="data_len !== 0">
+              <tr *ngFor="let item of bp_addr_list | paginate: {itemsPerPage: page_size, currentPage: page, totalItems: total}">
+                <td>
+                  <a class="address-tag text-truncate" (click)="transaction_info(appId, item.transactionHash)">
+                    {{ item.transactionHash }}
+                  </a>
+                </td>
+                <td class="text-center">
+                  <a (click)="block_info(appId, item.blockNo)">
+                    {{ item.blockNo }}
+                  </a>
+                </td>
+                <td class="text-center">{{ item.age }}</td>
+                <td>
+                  <span class="address-tag text-truncate">
+                    {{ item.fromAddress }}
+                  </span>
+                </td>
+                <td>
+                  <a class="address-tag text-truncate" (click)="addr_to_info(item.toAddress)">
+                    {{ item.toAddress }}
+                  </a>
+                </td>
+                <td class="text-right">{{ item.amountInEther | number }}</td>
+                <td class="text-center">{{ item.status }}</td>
+              </tr>
+            </tbody>
+            <tbody *ngIf="data_len === 0">
+              <tr>
+                <td colspan="7" class="text-center">Empty</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 text-left">
+            <div class="dataTables_length">
+              <label>Show
+                <select name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm"
+                  [(ngModel)]="pSize" (ngModelChange)="onSelectedSize($event)">
+                  <option value="10">10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+                </select>
+                entries
+              </label>
+            </div>
+          </div>
+          <div class="col-lg-6 text-right">
+            <pagination-controls (pageChange)="pageChanged($event)" class="pagination" previousLabel="Previous"
+              nextLabel="Next"></pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->

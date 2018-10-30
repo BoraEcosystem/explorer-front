@@ -1,0 +1,11 @@
+@media screen and (min-width:769px) and (max-width:1000px){
+    .col-sm-3, .col-sm-9 {display:block;float:none;width:100%}
+}
+
+.emptydata {
+  height:200px;
+  line-height:200px;
+  text-align:center;
+  font-weight:bold;
+  font-size:18px;
+}

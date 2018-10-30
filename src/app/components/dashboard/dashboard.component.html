@@ -1,0 +1,136 @@
+<div id="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Dashboard</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+  </div>
+
+  <!-- <h3>BORA Token network</h3>
+  <div class="row">
+
+    <div class="col-lg-2 col-md-6">
+      <div class="panel panel-list1">
+        <div class="panel-heading">
+          <div class="text-center">
+            Current Block :<p style="margin-bottom:0;">{{ tokens.currentBlock }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-2 col-md-6">
+      <div class="panel panel-list2">
+        <div class="panel-heading">
+          <div class="text-center">
+            Gas Used :<p style="margin-bottom:0;">{{ tokens.gasUsed | number }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-2 col-md-6">
+      <div class="panel panel-list3">
+        <div class="panel-heading">
+          <div class="text-center">
+            Block Time :<p style="margin-bottom:0;">{{ tokens.blockTime | number }} second(s)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-2 col-md-6">
+      <div class="panel panel-list4">
+        <div class="panel-heading">
+          <div class="text-center">
+            BORA Holders :<p style="margin-bottom:0;">{{ tokens.holder | number }} addresses</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-lg-2 col-md-6">
+      <div class="panel panel-list5">
+        <div class="panel-heading">
+          <div class="text-center">
+            BORA Transfers :<p style="margin-bottom:0;">{{ tokens.transferCount | number }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-2 col-md-6">
+      <div class="panel panel-list6">
+        <div class="panel-heading">
+          <div class="text-center">
+            Time (UTC) :
+            <p style="margin-bottom:0;">
+              {{ tokens.latestBlockDate | amUtc | amDateFormat: 'YYYY-MM-DD HH:mm:ss' }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ -->
+
+  <!-- <div class="row">
+    <div class="col-lg-12">
+      <p>
+        BORA Token Smart Contract Addres : <a href="https://etherscan.io/token/{{ tokens.tokenAddress }}">{{ tokens.tokenAddress }}</a>
+      </p>
+    </div>
+  </div> -->
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h3>BORA Shell network</h3>
+      <div class="table-responsive">
+        <table class="table table-bordered" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <!-- <th class="text-center" style="width: 8%">Service No</th> -->
+              <th class="text-center" style="width: 20%">Service Name</th>
+              <th class="text-center" style="width: 15%">Holders</th>
+              <th class="text-center" style="width: 15%">Total Supply</th>
+              <th class="text-center" style="width: 15%">Current Block</th>
+              <th class="text-center" style="width: 15%">Current TPS</th>
+              <th class="text-center" style="width: *">Time (UTC)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of points">
+              <!-- <td class="text-center">{{ item.appId }}</td> -->
+              <td class="text-center">{{ item.appName }}</td>
+              <td class="text-center">{{ item.holder | number }}</td>
+              <td class="text-right">{{ item.totalSupply | number }}</td>
+              <td class="text-right">{{ item.currentBlock | number }}</td>
+              <td class="text-right">{{ item.tps | number }}</td>
+              <td class="text-center">
+                {{ item.latestBlockDate | amUtc | amDateFormat: 'YYYY-MM-DD HH:mm:ss' }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- /.col-lg-12 -->
+  </div>
+  <!-- /.row -->
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h3>BORA Shell Total TPS</h3>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div id="morris-area-chart"></div>
+        </div>
+        <!-- /.panel-body -->
+      </div>
+      <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+  </div>
+  <!-- /.row -->
+</div>
