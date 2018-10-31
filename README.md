@@ -8,7 +8,7 @@ The BORA Explorer consists of the following modules.
 2. The Back-End module providing API for the Front-End, [explorer-api](https://github.com/BoraEcosystem/explorer-api)
 3. The Crawler to fetch data from the Blockchain and configure index database, [explorer-crawler](https://github.com/BoraEcosystem/explorer-crawler)
 
-It is a Front-End module.If you want to configure this front module, please check the Back-End API module and Crawler through the link above.
+This is the Front-End module. If you want to configure this Front-End, please check the Back-End API module and Crawler, which are related on Front-End, through the link above.
 
 
 ## BORA Explorer Front
@@ -31,13 +31,31 @@ npm install -g @angular/cli
 ```
 project root>npm install
 ```
-4. After completing Install, put "127.0.0.1 bora-explorer.way2bit.net" into your host file. Then run the local server. The default local domain is set to bora-explorer.way2bit.net\(angular.json\).  
+4. After completing install, put the domain which you want in your host file.(i.e, 127.0.0.1 bora-explorer.test.com). Then set "host" value in the "serve" property in angular.json file as follows:
+```
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+            "options": {
+              "browserTarget": "boraexpl:build",
+              "host": "your domain" //i.e, bora-explorer.test.com
+            },
+            "configurations": {
+              "sync": {
+                "browserTarget": "boraexpl:build:sync"
+              },
+              "production": {
+                "browserTarget": "boraexpl:build:production"
+              }
+            }
+          },
+```
+5. Run your local server.
 ```
 ng serve --port=8080 (default 4200)
 ```
-5. Build for online service  
+6. Build
 - The compiled source is created in the directory set to "outputPath" in angular.json
 - Run the created file on your server. 
 ```
-ng build {project-dir} --prod -output-hashing=all
+ng build {project-root} --prod -output-hashing=all
 ```
