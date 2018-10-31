@@ -6,10 +6,10 @@ export class Web3Service {
   private web3Obj: Object = {};
 
   private endPoints: Object = {
-    '1000': '133.186.240.79:8545', // token
-    '1001': '133.186.240.79:8501', // point main
-    '100003': '133.186.240.79:8502', // tower blocks
-    '100004': '133.186.240.79:8503', // pacman
+    '1000': 'https://testnet-gethpub.bora-lagoon.com', // token
+    '1001': 'https://testnet-gethpub1.bora-lagoon.com', // point main
+    '100003': 'https://testnet-gethpub2.bora-lagoon.com', // tower blocks
+    '100004': 'https://testnet-gethpub3.bora-lagoon.com', // pacman
   };
 
   private method_point_map: Object = {
@@ -49,7 +49,7 @@ export class Web3Service {
     }
 
     if ( this.web3Obj[appId] === undefined || this.web3Obj[appId] === 'error') {
-      this.web3Obj[appId] = new Web3( new Web3.providers.HttpProvider('http://' + this.endPoints[appId]) );
+      this.web3Obj[appId] = new Web3( new Web3.providers.HttpProvider(this.endPoints[appId]) );
     }
     const web3 = this.web3Obj[appId];
 
